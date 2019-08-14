@@ -1,0 +1,14 @@
+Barcabot/.idea
+Barcabot/Barcabot.Bot/bin
+Barcabot/Barcabot.Bot/obj
+Barcabot/Barcabot.Common/bin
+Barcabot/Barcabot.Common/obj
+Barcabot/Barcabot.Database/bin
+Barcabot/Barcabot.Database/obj
+Barcabot/Barcabot.HangfireService/bin
+Barcabot/Barcabot.HangfireService/obj
+Barcabot/Barcabot.Web/bin
+Barcabot/Barcabot.Web/obj
+ChartsMicroservice/node_modules
+ImageManipulationMicroservice/__pycache__
+config.yaml

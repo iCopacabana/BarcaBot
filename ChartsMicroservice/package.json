@@ -1,0 +1,22 @@
+{
+  "name": "barcabot-charts",
+  "version": "1.0.0",
+  "description": "BarcaBot's charts microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "barcabot",
+    "charts",
+    "microservice"
+  ],
+  "author": "barcabot-all, TraceLD",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "express": "^4.17.1",
+    "plotly": "^1.0.6",
+    "request": "^2.88.0",
+    "yaml": "^1.6.0"
+  }
+}
