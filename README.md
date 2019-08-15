@@ -68,7 +68,7 @@ If you want to self-host BarcaBot you will need to obtain tokens for those APIs,
 BarcaBot consists of many microservices that combined make up the BarcaBot app.
 
 
-#### I. Microservices
+### I. Microservices
 
 1. BarcaBot.Bot
 The core Discord.NET Bot that is actually responsible for sending messages/images/embeds in response to user commands.
@@ -82,7 +82,7 @@ Responds to POST requests sent by Barcabot.Bot with Plotly charts that are then 
 4. ImageManipulationService
 Responds to POST requests sent by Barcabot.Bot with Player cards that are then forwarded to the end user that has requested the command on Discord.
 
-##### API endpoints
+#### API endpoints
 I've mentioned quite a few API endpoints in the above Subsection. In this 'Subsubsection' (is that even a word?) you will find more details about them.
 
 BarcaBot exposes a few API endpoints that the Barcabot.Bot then uses to get some of the data and images. They are hosted on localhost.
@@ -168,7 +168,7 @@ Adds/updates the following Cron jobs and returns the status of the method that a
 Adds/updates the following Cron jobs and returns the status of the method that adds them:
     - Update all the player stats every 24h
 
-#### II. Scripts
+### II. Scripts
 A few scripts come packaged with BarcaBot to aid in the installation and deployment of it. I think it's important that you know which one of them does before you run any of them (remember, never run mysterious scripts). Some of them you may choose not to use (for example the ones to run the bot, if you for example prefer to convert each microservice into a Linux `systemd` service instead of running them using `nohup` in combination with provided scripts).
 
 1. `pip.sh`
@@ -192,7 +192,7 @@ Runs the Barca.HangfireService microservice and keeps it alive in case it crashe
 7. `run_all.sh`
 Runs all the previously mentioned run scripts in the background to launch all the microservices.
 
-#### III. Database
+### III. Database
 BarcaBot uses PostgreSQL 11 databases to store all the data. I've packaged SQL Scripts in the `Sql/` dir to aid in the preparation of each of the databases. This is also where you can see what tables it uses. This is further discussed in Sections 2 and 4.
 
 ## 4. Installation and deployment
@@ -200,7 +200,7 @@ This section describes how to install and deploy the bot. A several scripts that
 
 **The following guide is for Linux only!**
 
-#### I. Installing the dependencies
+### I. Installing the dependencies
 1. Python 3.7.4 or newer
 BarcaBot has been written for Python 3.7.4. Realistically any version of Python 3.7 should work just fine, although this has not been tested. Python < 3.6 is known to not work due to Literal String Interpolation not being present.
 In addition to installing Python 3.7.4 you will also need to install the following `pip` libraries:
@@ -233,12 +233,12 @@ The bot is known to not work with PostgreSQL 9 due to its incompatibility with H
 5. 3rd party libraries
 BarcaBot in addition to using the dependencies discussed above also uses a lot of other 3rd party libraries in the form of node libraries (or 'modules') and nuget packages. Those will not be discussed as they are going to be automatically resolved when you run the compile script which we will do in the next step. If you really want to see what they are you can look at `ChartsMicroservice/package.json`, as well as individual `.csproj` files.
 
-#### II. Compiling
+### II. Compiling
 1. `git clone` this repository.
 
 2. Run the script `Scripts/publish_all.sh`. It will run the `dotnet publish` command that compiles the solution as well as `node install` to resolve the dependencies of the ChartsMicroservice.
 
-#### III. Preparing the database
+### III. Preparing the database
 1. Create 3 databases, one for FootballData, one for Hangfire, and one for API-FOOTBALL. You can name them however you want.
 
 2. Run the `Sql/footballdata_tables.sql` SQL script in the FootballData database to create the neccessary tables.
@@ -250,7 +250,7 @@ BarcaBot in addition to using the dependencies discussed above also uses a lot o
 You do not need to do anything with the Hangfire database as it will be automatically configured by the `Barcabot.HangfireService` microservice the first time you run the bot.
 
 
-#### IV. Configuring BarcaBot
+### IV. Configuring BarcaBot
 Before you run the bot, you need to configure it.
 
 1. Obtain the neccessary API tokens (keys)
@@ -262,7 +262,7 @@ Before you run the bot, you need to configure it.
 2. Rename `sample_config.yaml` file to `config.yaml`.
 3. Replace all the placeholders in the `config.yaml` file with your own tokens, username and database names.
 
-#### V. Running BarcaBot
+### V. Running BarcaBot
 You have two options here:
 
 1. Run BarcaBot using `Scripts/run_all.sh`. This will simply launch all the microservices in the background and keep them alive in case they crash (may be hard to stop).
