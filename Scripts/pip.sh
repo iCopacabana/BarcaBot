@@ -1,8 +1,4 @@
-# Pillow
-# yaml
-# flask
-# flask_restful
-# gevent.pywsgi
+#!/bin/bash
 
 pip3 install Pillow --user
 pip3 install pyyaml --user
