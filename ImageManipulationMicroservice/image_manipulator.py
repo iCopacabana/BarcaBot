@@ -7,10 +7,10 @@ regular_font = ImageFont.truetype('fonts/PTSans-Regular.ttf', 16)
 regular_big_font = ImageFont.truetype('fonts/PTSans-Regular.ttf', 27)
 
 def image_to_bytes(image:Image):
-    bytes = io.BytesIO()
+    img_bytes = io.BytesIO()
     image.save(bytes, 'PNG')
     
-    return bytes.getvalue()
+    return img_bytes.getvalue()
 
 class StringDrawer:
     def __init__(self, drawing_context):

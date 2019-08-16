@@ -11,4 +11,4 @@ module.exports = (name) => {
     } else {
         return name;
     }
-}
+};

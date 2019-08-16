@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Barcabot.Common.DataModels.Dto.ApiFootball
 {
-    public partial class Games
+    public class Games
     {
         // ReSharper disable once IdentifierTypo
         public int Appearences { get; set; }

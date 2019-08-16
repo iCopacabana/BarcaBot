@@ -70,7 +70,7 @@ namespace Barcabot.Bot.Modules
 
                         var request = new
                         {
-                            PlayerList = new List<Player>() {playerObject1, playerObject2}
+                            PlayerList = new List<Player> {playerObject1, playerObject2}
                         };
                         
                         var postResponse = await _postService.GetStreamFromPost("http://localhost:3000/stats/players", request);

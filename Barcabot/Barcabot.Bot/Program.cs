@@ -33,7 +33,7 @@ namespace Barcabot.Bot
             }
         }
 
-        private Task LogAsync(LogMessage log)
+        private static Task LogAsync(LogMessage log)
         {
             Console.WriteLine(log.ToString());
 

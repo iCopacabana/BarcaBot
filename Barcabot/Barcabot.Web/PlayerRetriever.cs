@@ -81,7 +81,11 @@ namespace Barcabot.Web
                 
                 foreach (var player in list)
                 {
-                    if (player.Rating != null) rating.Add((double) player.Rating);
+                    if (player.Rating != null)
+                    {
+                        rating.Add((double) player.Rating);
+                    }
+                    
                     shots.Total += player.Shots.Total;
                     shots.On += player.Shots.On;
                     goals.Total += player.Goals.Total;
@@ -201,7 +205,11 @@ namespace Barcabot.Web
                     // example
                     // (6705 passes / 18928 mins) x 90 = 31.9
                     
-                    if (dtoPlayer.Games.MinutesPlayed == 0) return 0;
+                    if (dtoPlayer.Games.MinutesPlayed == 0)
+                    {
+                        return 0;
+                    }
+
                     return Math.Round((double)stat / (double)dtoPlayer.Games.MinutesPlayed * 90, 2);
                 }
 
