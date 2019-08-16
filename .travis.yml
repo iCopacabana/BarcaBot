@@ -1,5 +1,5 @@
 language: csharp
-solution: Barcabot/Barcabot.sln
+solution: ./Barcabot/Barcabot.sln
 
 matrix:
   include:
