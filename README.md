@@ -1,4 +1,6 @@
 # BarcaBot
+[![Build Status](https://travis-ci.org/TraceLD/BarcaBot.svg?branch=master)](https://travis-ci.org/TraceLD/BarcaBot)
+
 A FC Barcelona themed Discord bot for 'Barça Reddit-Gràcies Storm'.
 
 If you are looking for an invite link for BarcaBot, there unfortunately isn't one. While I would love to host it for everyone, I currently don't have the finances to pay for a VPS powerful enough to host the bot for multiple servers, so if you want to use it, you'll have to host it yourself.
