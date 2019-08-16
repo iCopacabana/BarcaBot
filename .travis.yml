@@ -1,7 +1,7 @@
 language: csharp
-solution: ./Barcabot/Barcabot.sln
-
-matrix:
-  include:
-    - dotnet: 2.2.401
-      mono: none
+solution: Barcabot.sln
+dotnet: 2.2.401
+mono: none
+script:
+  - dotnet restore ./Barcabot/Barcabot.sln
+  - dotnet build -c Release ./Barcabot/Barcabot.sln
