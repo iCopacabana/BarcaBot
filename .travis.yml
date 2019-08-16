@@ -1,0 +1,7 @@
+language: csharp
+solution: Barcabot/Barcabot.sln
+
+matrix:
+  include:
+    - dotnet: 2.2.401
+      mono: none
