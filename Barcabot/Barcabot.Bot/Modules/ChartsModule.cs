@@ -60,14 +60,24 @@ namespace Barcabot.Bot.Modules
         {
             using (var c = new PlayersDatabaseConnection())
             {
-                try
+                var playerObject1 = c.GetPlayerByName(name1);
+
+                if (playerObject1 == null)
                 {
-                    var playerObject1 = c.GetPlayerByName(name1);
+                    await Context.Channel.SendMessageAsync(
+                        $":warning: Error: Could not find player `{name1}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
+                }
+                else
+                {
+                    var playerObject2 = c.GetPlayerByName(name2);
 
-                    try
+                    if (playerObject2 == null)
                     {
-                        var playerObject2 = c.GetPlayerByName(name2);
-
+                        await Context.Channel.SendMessageAsync(
+                            $":warning: Error: Could not find player `{name2}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
+                    }
+                    else
+                    {
                         var request = new
                         {
                             PlayerList = new List<Player> {playerObject1, playerObject2}
@@ -89,16 +99,6 @@ namespace Barcabot.Bot.Modules
                             await Context.Channel.SendFileAsync(stream, "chart.png");
                         }
                     }
-                    catch(ArgumentOutOfRangeException)
-                    {
-                        await Context.Channel.SendMessageAsync(
-                            $":warning: Error: Could not find player `{name2}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
-                    }
-                }
-                catch(ArgumentOutOfRangeException)
-                {
-                    await Context.Channel.SendMessageAsync(
-                        $":warning: Error: Could not find player `{name1}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
                 }
             }
         }

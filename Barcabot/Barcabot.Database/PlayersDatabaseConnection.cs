@@ -36,7 +36,7 @@ namespace Barcabot.Database
             var parameter = $"%{playerName.Replace("%", "")}%";
             var output = Connection.Query<SqlPlayer>("SELECT * FROM player WHERE LOWER(name) LIKE @name LIMIT 1", new {name = parameter}).ToList();
 
-            return Converter.FromSqlPlayer(output[0]);
+            return !output.Any() ? null : Converter.FromSqlPlayer(output[0]);
         }
         
         public Player GetPlayerById(int playerId)
