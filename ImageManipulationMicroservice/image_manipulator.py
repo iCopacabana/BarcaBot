@@ -8,7 +8,7 @@ regular_big_font = ImageFont.truetype('fonts/PTSans-Regular.ttf', 27)
 
 def image_to_bytes(image:Image):
     img_bytes = io.BytesIO()
-    image.save(bytes, 'PNG')
+    image.save(img_bytes, 'PNG')
     
     return img_bytes.getvalue()
 
