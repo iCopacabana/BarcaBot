@@ -15,7 +15,6 @@ namespace Barcabot.Common
             var culture = CultureInfo.CreateSpecificCulture("pl-PL");
 
             return date.ToString(culture);
-            //return $"{date.Hour:D2}:{date.Minute:D2} {date.Day}/{date.Month}/{date.Year}";
         }
 
         public static DateTime ConvertToDateTime(string originalJsonDate)
