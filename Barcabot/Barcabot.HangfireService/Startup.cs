@@ -36,7 +36,7 @@ namespace Barcabot.HangfireService
         {
             services.AddHangfire(x => x.UsePostgreSqlStorage(ConnHelper.GetConnectionString(YamlConfiguration.Config.Postgres.DatabaseNames.Hangfire)));
             services.AddHangfireServer();
-            services.AddSingleton<HttpClient>();
+            services.AddTransient<HttpClient>();
             services.AddTransient<DataRetrievalService>();
             services.AddTransient<FootballDataApiRetrievalService>();
             services.AddTransient<ApiFootballRetrievalService>();

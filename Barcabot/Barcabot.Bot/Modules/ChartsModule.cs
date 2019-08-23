@@ -26,11 +26,15 @@ namespace Barcabot.Bot.Modules
         {
             using (var c = new PlayersDatabaseConnection())
             {
-                try
+                var playerObject = c.GetPlayerByName(name);
+
+                if (playerObject == null)
                 {
-                    var playerObject = c.GetPlayerByName(name);
-                    
-                    
+                    await Context.Channel.SendMessageAsync(
+                        $":warning: Error: Could not find player `{name}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
+                }
+                else
+                {
                     var postResponse = await _postService.GetStreamFromPost("http://localhost:3000/stats/player", playerObject);
 
                     if (postResponse.ResponseCode != "OK")
@@ -46,11 +50,6 @@ namespace Barcabot.Bot.Modules
                         
                         await Context.Channel.SendFileAsync(stream, "chart.png");
                     }
-                }
-                catch(ArgumentOutOfRangeException)
-                {
-                    await Context.Channel.SendMessageAsync(
-                        $":warning: Error: Could not find player `{name}`. Are you sure they exist and are a FCB player?\nIf you think there is a player missing from the database please report it to the creator of BarcaBot `Trace#8994`.");
                 }
             }
         }
