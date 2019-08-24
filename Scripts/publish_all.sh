@@ -4,6 +4,7 @@ set -e
 
 cd ..
 cd Barcabot
+dotnet restore
 dotnet publish -c Release
 cd ..
 
