@@ -11,21 +11,21 @@ If you are looking for an invite link for BarcaBot, there unfortunately isn't on
 If you want to simply deploy BarcaBot on your own VPS/local machine/server so that you can use it in your own Discord server and don't care about how it works or any implementation details skip to the Section 4 of this document, although it is recommended that you read all of it.
 
 ## Table of contents
-1.  Available commands
-2.  Where does the data come from?
-3.  Structure of BarcaBot
-    1.  Microservices
-        -   API Endpoints
-    2.  Scripts
-    3.  Database
-4.  Installation and deployment
-    1.  Installing the dependencies
-    2.  Compiling
-    3.  Preparing the database
-    4.  Configuring BarcaBot
-    5.  Running BarcaBot
-5.  Contributing
-6.  TODO
+1.  [Available commands](https://github.com/TraceLD/BarcaBot#1-available-commands)
+2.  [Where does the data come from?](https://github.com/TraceLD/BarcaBot#2-where-does-the-data-come-from)
+3.  [Structure of BarcaBot](https://github.com/TraceLD/BarcaBot#3-structure-of-barcabot)
+    1.  [Microservices](https://github.com/TraceLD/BarcaBot#i-microservices)
+        -   [API Endpoints](https://github.com/TraceLD/BarcaBot#api-endpoints)
+    2.  [Scripts](https://github.com/TraceLD/BarcaBot#ii-scripts)
+    3.  [Database](https://github.com/TraceLD/BarcaBot#iii-database)
+4.  [Installation and deployment](https://github.com/TraceLD/BarcaBot#4-installation-and-deployment)
+    1.  [Installing the dependencies](https://github.com/TraceLD/BarcaBot#i-installing-the-dependencies)
+    2.  [Compiling](https://github.com/TraceLD/BarcaBot#ii-compiling)
+    3.  [Preparing the database](https://github.com/TraceLD/BarcaBot#iii-preparing-the-database)
+    4.  [Configuring BarcaBot](https://github.com/TraceLD/BarcaBot#iv-configuring-barcabot)
+    5.  [Running BarcaBot](https://github.com/TraceLD/BarcaBot#v-running-barcabot)
+5.  [Contributing](https://github.com/TraceLD/BarcaBot#contributing)
+6.  [TODO](https://github.com/TraceLD/BarcaBot#todo)
 
 ## 1. Available Commands
 `=help`
@@ -63,7 +63,7 @@ Shows you how to report an issue.
 
 ## 2. Where does the data come from?
 
-BarcaBot requires a lot of data to function, from player stats to the match schedule. I've put a lot of thought into where this data should be obtained from. The easiest (and cheapest) solution would be to scrape sites like WhoScored, Flashscores, etc. using one of the scraping libraries (such as Puppeteer.NET) as that would provide access to the largest array of data, however, this solution comes with many legal, as well as ethical conerns, and therefore I've deemed it unsuitable. There are football stats and data provides such as Opta, but the issue with them is that they can cost hundreds, if not thousands of pounds per month.
+BarcaBot requires a lot of data to function, from player stats to the match schedule. I've put a lot of thought into where this data should be obtained from. The easiest (and cheapest) solution would be to scrape sites like WhoScored, Flashscores, etc. using one of the scraping libraries (such as PuppeteerSharp) as that would provide access to the largest array of data, however, this solution comes with many legal, as well as ethical conerns, and therefore I've deemed it unsuitable. There are football stats and data provides such as Opta, but the issue with them is that they can cost hundreds, if not thousands of pounds per month.
 
 I've ended up going with a combination of two Freemium APIs - API-FOOTBALL and FootballData. They both provide a basic free tier, which I can use for everything BarcaBot needs. Instead of calling the API every single time a user requests a command, I'm updating my own database with data on a schedule (Hangfire Recurring Cron Jobs). This, while not providing truly real time data, allows me to essentially bypass any rate limits.
 
