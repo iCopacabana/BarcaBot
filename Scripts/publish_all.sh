@@ -26,7 +26,4 @@ fi
 cp -r Barcabot/Barcabot.Bot/bin/Release/netcoreapp2.2/publish/* Bot/
 cp -r Barcabot/Barcabot.HangfireService/bin/Release/netcoreapp2.2/publish/* Hangfire/
 
-cd ChartsMicroservice
-npm install
-
 echo Done.
