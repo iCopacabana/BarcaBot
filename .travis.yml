@@ -3,5 +3,5 @@ solution: Barcabot.sln
 dotnet: 2.2.401
 mono: none
 script:
-  - dotnet restore ./Barcabot/Barcabot.sln
-  - dotnet build -c Release ./Barcabot/Barcabot.sln
+  - cd Scripts
+  - ./publish_all.sh
