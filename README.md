@@ -1,6 +1,6 @@
 # BarcaBot
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue)](https://github.com/TraceLD/BarcaBot/blob/master/LICENSE)
-![OS](https://img.shields.io/badge/platform-linux-lightgrey)
+![OS](https://img.shields.io/badge/platform-linux-orange)
 [![Codacy](https://api.codacy.com/project/badge/Grade/6bf260d4ae2044c0b7490b6321ab481b)](https://www.codacy.com/app/TraceLD/BarcaBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TraceLD/BarcaBot&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/TraceLD/BarcaBot.svg?branch=master)](https://travis-ci.org/TraceLD/BarcaBot)
 
@@ -150,17 +150,15 @@ Produces a defender type player card for a given Player object (found in the POS
 Produces a goalkeeper type player card for a given Player object (found in the POST request's body).
 5.  GET `localhost:5001/`
 Shows the status of the HangfireService microservice.
-6.  GET `localhost:5001/`
-Shows the status of the HangfireService microservice.
-7. `localhost:5001/hangfire`
+6. `localhost:5001/hangfire`
 This is not a RESTFUL endpoint but a dashboard that allows you to see the status of all the Cron jobs that have been previously discussed as well as remove them.
-8. GET `localhost:5001/api/footballdatajobs`
+7. GET `localhost:5001/api/footballdatajobs`
 Adds/updates the following Cron jobs and returns the status of the method that adds them:
     - Update LaLiga scorers every 2 minutes
     - Update UCL scorers every 2 minutes
     - Update FCB's matches schedule every 2 minutes
 
-9. GET `localhost:5001/api/playersjobs`
+8. GET `localhost:5001/api/playersjobs`
 Adds/updates the following Cron jobs and returns the status of the method that adds them:
     - Update all the player stats every 24h
 
