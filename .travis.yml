@@ -1,5 +1,4 @@
 language: csharp
-solution: Barcabot.sln
 dotnet: 2.2.401
 mono: none
 script:
