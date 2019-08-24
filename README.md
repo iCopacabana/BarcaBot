@@ -81,10 +81,7 @@ The core Discord.NET Bot that is actually responsible for sending messages/image
 2.  Barcabot.HangfireService
 Exposes the API endpoints that add/update Cron jobs that have been discussed in Section 2. It then runs those Cron jobs on a provided schedule. It also provides a Dashboard that allows you to see which jobs have succeeded and which failed, etc. It also allows you to remove previously added jobs.
 
-3.  ChartsMicroservice
-Responds to POST requests sent by Barcabot.Bot with Plotly charts that are then forwarded to the end user that has requested the command on Discord.
-
-4.  ImageManipulationService
+3.  ImageManipulationService
 Responds to POST requests sent by Barcabot.Bot with Player cards that are then forwarded to the end user that has requested the command on Discord.
 
 #### API endpoints
@@ -143,33 +140,27 @@ Example of the Player object:
 
 Now that you're familiar with the Player object we can discuss the endpoints.
 
-1.  GET `localhost:3000/`
-Shows the status of the Charts microservice.
-2.  POST `localhost:3000/stats/player`
-Produces a stat chart for a given Player object (found in the POST request's body).
-3.  POST `localhost:3000/stats/players`
-Produces a stat chart for a list of given 2 Player objects (found in the POST request's body) (e.g. `[playerObject1, playerObject2]`).
-4.  POST `localhost:4000/player_cards/attacker/`
+1.  POST `localhost:4000/player_cards/attacker/`
 Produces an attacker type player card for a given Player object (found in the POST request's body).
-5.  POST `localhost:4000/player_cards/midfielder/`
+2.  POST `localhost:4000/player_cards/midfielder/`
 Produces a midfielder type player card for a given Player object (found in the POST request's body).
-6.  POST `localhost:4000/player_cards/defender/`
+3.  POST `localhost:4000/player_cards/defender/`
 Produces a defender type player card for a given Player object (found in the POST request's body).
-7.  POST `localhost:4000/player_cards/goalie/`
+4.  POST `localhost:4000/player_cards/goalie/`
 Produces a goalkeeper type player card for a given Player object (found in the POST request's body).
-8.  GET `localhost:5001/`
+5.  GET `localhost:5001/`
 Shows the status of the HangfireService microservice.
-9.  GET `localhost:5001/`
+6.  GET `localhost:5001/`
 Shows the status of the HangfireService microservice.
-10. `localhost:5001/hangfire`
+7. `localhost:5001/hangfire`
 This is not a RESTFUL endpoint but a dashboard that allows you to see the status of all the Cron jobs that have been previously discussed as well as remove them.
-11. GET `localhost:5001/api/footballdatajobs`
+8. GET `localhost:5001/api/footballdatajobs`
 Adds/updates the following Cron jobs and returns the status of the method that adds them:
     - Update LaLiga scorers every 2 minutes
     - Update UCL scorers every 2 minutes
     - Update FCB's matches schedule every 2 minutes
 
-12. GET `localhost:5001/api/playersjobs`
+9. GET `localhost:5001/api/playersjobs`
 Adds/updates the following Cron jobs and returns the status of the method that adds them:
     - Update all the player stats every 24h
 
@@ -180,21 +171,18 @@ A few scripts come packaged with BarcaBot to aid in the installation and deploym
 This script installs all of the libraries the `ImageManipulationMicroservice` relies on for the current user. It relies on `pip` for Python 3 being under the `pip3` command.
 
 2.  `publish_all.sh`
-This script compiles the C# microservices as well as installs `ChartsMicroservice`'s node dependencies in the `node_modules` folder (it does not install anything globally, so don't worry).
+This script compiles the C# microservices.
 
 3.  `run_bot.sh`
 Runs the BarcaBot.Bot microservice and keeps it alive in case it crashes for whatever reason. Meant to be used in combination with `run_all.sh`.
 
-4.  `run_charts_microservice.sh`
-Runs the ChartsMicroservice and keeps it alive in case it crashes for whatever reason. Meant to be used in combination with `run_all.sh`.
-
-5.  `run_img_microservice.sh`
+4.  `run_img_microservice.sh`
 Runs the ImageManipulationMicroservice and keeps it alive in case it crashes for whatever reason. Meant to be used in combination with `run_all.sh`.
 
-6.  `run_hangfire_microservice.sh`
+5.  `run_hangfire_microservice.sh`
 Runs the Barca.HangfireService microservice and keeps it alive in case it crashes for whatever reason. Meant to be used in combination with `run_all.sh`.
 
-7.  `run_all.sh`
+6.  `run_all.sh`
 Runs all the previously mentioned run scripts in the background to launch all the microservices.
 
 ### III. Database
@@ -220,28 +208,23 @@ If you want to install the libraries automatically I've included a script in the
 
 You can learn how to install Python and use `pip` [here](https://python101.readthedocs.io/pl/latest/env/linux.html).
 
-2.  node.js
-BarcaBot has been written with `node.js v12` in mind, although `v10` should also work, however, this has not been tested.
-
-You can learn how to install node.js [here](https://nodejs.org/en/download/).
-
-3.  .NET Core 2.2 SDK
+2.  .NET Core 2.2 SDK
 BarcaBot targets .NET Core 2.2 and you will need to both compile the C# microservices from source as well as run them, so the runtime alone is not going to be enough and you will need to install the whole SDK.
 
 You can learn how to do that [here](https://dotnet.microsoft.com/download/linux-package-manager/rhel/sdk-2.2.401).
 
-4.  PostgreSQL 11
+3.  PostgreSQL 11
 BarcaBot utilizes PostgreSQL as its database. The version that has been tested and is proven to work with BarcaBot is `postgresql11-server` from the `https://yum.postgresql.org/11/fedora/fedora-30-x86_64/pgdg-fedora-repo-latest.noarch.rpm` repository. It is expected for the bot to work perfectly with PostgreSQL 11 on all Linux distors that it is available on, although this has not been tested.
 
 The bot is known to not work with PostgreSQL 9 due to its incompatibility with Hangfire which is a C# library that BarcaBot uses.
 
-5.  3rd party libraries
-BarcaBot in addition to using the dependencies discussed above also uses a lot of other 3rd party libraries in the form of node libraries (or 'modules') and nuget packages. Those will not be discussed as they are going to be automatically resolved when you run the compile script which we will do in the next step. If you really want to see what they are you can look at `ChartsMicroservice/package.json`, as well as individual `.csproj` files.
+4.  3rd party libraries
+BarcaBot in addition to using the dependencies discussed above also uses a lot of other 3rd party libraries in the form of nuget packages. Those will not be discussed as they are going to be automatically resolved when you run the compile script which we will do in the next step. If you really want to see what they are you can look at individual `.csproj` files.
 
 ### II. Compiling
 1.  `git clone` this repository.
 
-2.  Run the script `Scripts/publish_all.sh`. It will run the `dotnet publish` command that compiles the solution as well as `node install` to resolve the dependencies of the ChartsMicroservice.
+2.  Run the script `Scripts/publish_all.sh`. It will run the `dotnet publish` command that compiles the solution.
 
 ### III. Preparing the database
 1.  Create 3 databases, one for FootballData, one for Hangfire, and one for API-FOOTBALL. You can name them however you want.
