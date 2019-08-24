@@ -17,7 +17,7 @@ app.use(express.json());
 app.get('/', function (req, res) {
     const a = {
         apiStatus: 'working'
-    }
+    };
 
     res.send(a);
 });
@@ -54,7 +54,7 @@ app.post('/stats/players', function(req, res) {
     plotly.getImage(figure, imgOpts, function (error, imageStream) {
         if (error) {
             res.status(500).send('error');
-            console.log(error)
+            console.log(error);
         } else {
             imageStream.pipe(res);
         }
