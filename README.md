@@ -1,7 +1,7 @@
 # BarcaBot
 [![License](https://img.shields.io/badge/license-BSD%203--Clause-blue)](https://github.com/TraceLD/BarcaBot/blob/master/LICENSE)
 ![OS](https://img.shields.io/badge/platform-linux-orange)
-[![Codacy](https://api.codacy.com/project/badge/Grade/6bf260d4ae2044c0b7490b6321ab481b)](https://www.codacy.com/app/TraceLD/BarcaBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TraceLD/BarcaBot&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a53fd9e7fae646d48375c4cce90e90a6)](https://www.codacy.com/app/TraceLD/BarcaBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TraceLD/BarcaBot&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/TraceLD/BarcaBot.svg?branch=master)](https://travis-ci.org/TraceLD/BarcaBot)
 
 A FC Barcelona themed Discord bot for 'Barça Reddit-Gràcies Storm'.
