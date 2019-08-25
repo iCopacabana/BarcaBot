@@ -243,8 +243,8 @@ Before you run the bot, you need to configure it.
     3.  Sign up for plotly and obtain a username and a token. You can do so [here](https://plot.ly/Auth/login/?next=%2Fsettings%2Fapi).
     4.  Obtain a Discord API token from [here](https://discordapp.com/developers/).
 
-2.  Rename `sample_config.yaml` file to `config.yaml`.
-3.  Replace all the placeholders in the `config.yaml` file with your own tokens, username and database names.
+2.  Rename `sample_config.yml` file to `config.yml`.
+3.  Replace all the placeholders in the `config.yml` file with your own tokens, username and database names.
 
 ### V. Running BarcaBot
 You have two options here:

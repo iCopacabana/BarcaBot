@@ -1,7 +1,7 @@
 import yaml
 
 def read_yaml_names_file():
-    stream = open('names.yaml', 'r')
+    stream = open('../names.yml', 'r')
     names_root = yaml.safe_load(stream)
     
     return names_root['names']

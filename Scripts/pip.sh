@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pip3 install Pillow --user
 pip3 install pyyaml --user
 pip3 install Flask --user
