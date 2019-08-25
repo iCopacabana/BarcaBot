@@ -17,7 +17,7 @@ namespace Barcabot.HangfireService.Services
         {
             var players = await _retriever.Retrieve();
 
-            using (var c = new PlayersDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 c.SetPlayers(players);
             }

@@ -15,7 +15,7 @@ namespace Barcabot.Bot.Modules
         [Command("laligascorers", RunMode = RunMode.Async)]
         public async Task LaLigaScorers()
         {
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var scorersList = c.GetLaLigaScorersList();
 
@@ -43,7 +43,7 @@ namespace Barcabot.Bot.Modules
         [Command("uclscorers", RunMode = RunMode.Async)]
         public async Task UclScorers()
         {
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var scorersList = c.GetUclScorersList();
 
@@ -71,7 +71,7 @@ namespace Barcabot.Bot.Modules
         [Command("schedule", RunMode = RunMode.Async)]
         public async Task Schedule()
         {
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var scheduledMatchesList = c.GetScheduledMatchesList().Take(5).ToList();
                 
@@ -103,7 +103,7 @@ namespace Barcabot.Bot.Modules
         [Command("nextmatch", RunMode = RunMode.Async)]
         public async Task NextMatch()
         {
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var scheduledMatchesList = c.GetScheduledMatchesList();
                 

@@ -21,7 +21,7 @@ namespace Barcabot.Bot.Modules
         [Command("player", RunMode = RunMode.Async)]
         public async Task Player(string name)
         {
-            using (var c = new PlayersDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var playerObject = c.GetPlayerByName(name);
 

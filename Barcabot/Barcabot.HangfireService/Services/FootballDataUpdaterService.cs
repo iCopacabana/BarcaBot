@@ -17,7 +17,7 @@ namespace Barcabot.HangfireService.Services
         {
             var scorers = await _retriever.GetScorers(FootballDataUrls.UclId);
 
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 c.SetUclScorers(scorers);
             }
@@ -27,7 +27,7 @@ namespace Barcabot.HangfireService.Services
         {
             var scorers = await _retriever.GetScorers(FootballDataUrls.LaLigaId);
 
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 c.SetLaLigaScorers(scorers);
             }
@@ -37,7 +37,7 @@ namespace Barcabot.HangfireService.Services
         {
             var matches = await _retriever.GetScheduledBarcaMatches();
             
-            using (var c = new FootballDataDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 c.SetMatches(matches);
             }
