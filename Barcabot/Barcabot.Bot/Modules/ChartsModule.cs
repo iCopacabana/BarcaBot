@@ -33,7 +33,7 @@ namespace Barcabot.Bot.Modules
         [Command("playerchart", RunMode = RunMode.Async)]
         public async Task PlayerChart(string name)
         {
-            using (var c = new PlayersDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var playerObject = c.GetPlayerByName(name);
 
@@ -76,7 +76,7 @@ namespace Barcabot.Bot.Modules
         [Command("playerschart", RunMode = RunMode.Async)]
         public async Task PlayersChart(string name1, string name2)
         {
-            using (var c = new PlayersDatabaseConnection())
+            using (var c = new BarcabotDatabaseConnection())
             {
                 var playerObject1 = c.GetPlayerByName(name1);
 

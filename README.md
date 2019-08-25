@@ -225,13 +225,11 @@ BarcaBot in addition to using the dependencies discussed above also uses a lot o
 2.  Run the script `Scripts/publish_all.sh`. It will run the `dotnet publish` command that compiles the solution.
 
 ### III. Preparing the database
-1.  Create 3 databases, one for FootballData, one for Hangfire, and one for API-FOOTBALL. You can name them however you want.
+1.  Create 2 databases, one for BarcaBot's football data and one for Hangfire, and one for API-FOOTBALL. You can name them however you want. I personally name them `barcabot` and `hangfire` respectively.
 
-2.  Run the `Sql/footballdata_tables.sql` SQL script in the FootballData database to create the neccessary tables.
+2.  Run the `Sql/tables.sql` SQL script in the BarcaBot database to create the neccessary tables.
 
-3.  Run the `Sql/players_tables.sql` SQL script in the API-FOOTBALL database to create the neccessary tables.
-
-4.  Configure PostgreSQL so that you can access it using a username and a password. Your favourite search engine is going to be your best friend here.
+3.  Configure PostgreSQL so that you can access it using a username and a password. Your favourite search engine is going to be your best friend here.
 
 You do not need to do anything with the Hangfire database as it will be automatically configured by the `Barcabot.HangfireService` microservice the first time you run the bot.
 
