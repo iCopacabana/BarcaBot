@@ -14,7 +14,7 @@ namespace Barcabot.Common
         {
             var currentDir = Directory.GetCurrentDirectory();
             var mainDir = Directory.GetParent(currentDir).ToString();
-            var path = Path.Combine(mainDir, "config.yaml");
+            var path = Path.Combine(mainDir, "config.yml");
     
             return File.ReadAllText(path);
         }
