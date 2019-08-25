@@ -12,4 +12,4 @@ Barcabot/.idea
 .vscode/
 
 # Don't include any secrets
-config.yaml
+config.yml
