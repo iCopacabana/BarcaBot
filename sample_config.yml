@@ -1,13 +1,13 @@
-postgres:
+***REMOVED***
   username: "placeholder"
   password: "placeholder"
-  databaseNames:
+***REMOVED***
     barcabot: "placeholder"
     hangfire: "placeholder"
-apiTokens:
+***REMOVED***
   footballData: "placeholder"
   apiFootball: "placeholder"
-plotly:
+***REMOVED***
   username: "placeholder"
   token: "placeholder"
 discordToken: "placeholder"
