@@ -14,10 +14,10 @@ namespace Barcabot.Common
         {
             var currentDir = Directory.GetCurrentDirectory();
             var mainDir = Directory.GetParent(currentDir).ToString();
-            var path1 = Path.Combine(mainDir, "ImageManipulationMicroservice");
-            var path2 = Path.Combine(path1, "names.yaml");
+            var pathToContainingDir = Path.Combine(mainDir, "ImageManipulationMicroservice");
+            var pathToFile = Path.Combine(pathToContainingDir, "names.yaml");
     
-            return File.ReadAllText(path2);
+            return File.ReadAllText(pathToFile);
         }
 
         private static Dictionary<string, string> GetNames()
