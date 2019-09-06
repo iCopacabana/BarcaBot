@@ -26,7 +26,9 @@ namespace Barcabot.Web
 
         private async Task GetDto()
         {
-            _response = await _service.RetrieveData<TeamResponse>(ApiFootballUrls.BarcelonaPlayers("2018-2019"));
+            var url = $"https://api-football-v1.p.rapidapi.com/v2/players/team/529/{YamlConfiguration.Config.Apis.ApiFootball.Season}";
+
+            _response = await _service.RetrieveData<TeamResponse>(url);
         }
 
         private IEnumerable<FootballPlayer> GetListWithoutDuplicates()
