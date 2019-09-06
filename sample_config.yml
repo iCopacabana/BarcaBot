@@ -4,11 +4,13 @@ postgres:
   databaseNames:
     barcabot: "placeholder"
     hangfire: "placeholder"
-apiTokens:
-  footballData: "placeholder"
-  apiFootball: "placeholder"
+apis:
+  footballData:
+    token: "placeholder"
+  apiFootball:
+    token: "placeholder"
+    season: "placeholder"
 plotly:
   username: "placeholder"
   token: "placeholder"
 discordToken: "placeholder"
-
