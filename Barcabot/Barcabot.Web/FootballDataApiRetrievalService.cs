@@ -8,7 +8,7 @@ namespace Barcabot.Web
     {
         public FootballDataApiRetrievalService(HttpClient http) : base(http)
         {
-            Client.DefaultRequestHeaders.Add("X-Auth-Token", YamlConfiguration.Config.ApiTokens.FootballData);
+            Client.DefaultRequestHeaders.Add("X-Auth-Token", YamlConfiguration.Config.Apis.FootballData.Token);
         }
     }
 }

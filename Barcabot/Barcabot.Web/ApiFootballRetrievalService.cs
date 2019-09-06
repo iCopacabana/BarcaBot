@@ -9,7 +9,7 @@ namespace Barcabot.Web
         public ApiFootballRetrievalService(HttpClient http) : base(http)
         {
             Client.DefaultRequestHeaders.Add("X-RapidAPI-Host", "api-football-v1.p.rapidapi.com");
-            Client.DefaultRequestHeaders.Add("X-RapidAPI-Key", YamlConfiguration.Config.ApiTokens.ApiFootball);
+            Client.DefaultRequestHeaders.Add("X-RapidAPI-Key", YamlConfiguration.Config.Apis.ApiFootball.Token);
         }
     }
 }
