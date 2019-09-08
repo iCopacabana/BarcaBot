@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Barcabot.Common;
 using Barcabot.Common.DataModels.Dto.FootballDataApi;
 using Match = Barcabot.Common.DataModels.Match;
 using Scorer = Barcabot.Common.DataModels.Scorer;
@@ -26,7 +27,7 @@ namespace Barcabot.Web
             return table.Select(rawTeam => new Team
                 {
                     Position = rawTeam.Position,
-                    Team = rawTeam.Team.Name,
+                    Team = StringNormalizer.Normalize(rawTeam.Team.Name),
                     Played = rawTeam.PlayedGames,
                     Won = rawTeam.Won,
                     Drawn = rawTeam.Draw,

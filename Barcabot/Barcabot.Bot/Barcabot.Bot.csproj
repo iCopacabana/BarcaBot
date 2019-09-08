@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="ConsoleTables" Version="2.3.0" />
       <PackageReference Include="Discord.Net" Version="2.1.1" />
       <PackageReference Include="TraceLd.PlotlySharp" Version="1.0.1" />
     </ItemGroup>

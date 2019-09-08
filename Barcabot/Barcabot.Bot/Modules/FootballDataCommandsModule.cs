@@ -1,17 +1,74 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Barcabot.Common;
-using Discord.Commands;
+using Barcabot.Common.DataModels;
 using Barcabot.Database;
+using ConsoleTables;
 using Discord;
+using Discord.Commands;
 
 namespace Barcabot.Bot.Modules
 {
     [SuppressMessage("ReSharper", "StringLiteralTypo")]
     public class FootballDataCommandsModule : ModuleBase<SocketCommandContext>
     {
+        [Command("table", RunMode = RunMode.Async)]
+        public async Task Table([Remainder]string mode = "")
+        {
+            using (var c = new BarcabotDatabaseConnection())
+            {
+                var sqlTable = c.GetLaLigaStandings();
+                var consoleTable = new ConsoleTable("", "Club", "MP", "W", "D", "L", "GD", "Pts");
+                var m = mode.ToLower();
+                
+                if (m.Equals("top"))
+                {
+                    var t = sqlTable.Take(5).ToList();
+
+                    Loop(t);
+                }
+                else if (m.Equals("bottom"))
+                {
+                    var t = sqlTable.TakeLast(5);
+                    
+                    Loop(t);
+                }
+                else
+                {
+                    var index = sqlTable.FindIndex(team => team.Team.ToLower().Contains(m));
+
+                    if (index > 2)
+                    {
+                        index -= 2;
+                    }
+                    else
+                    {
+                        index = 0;
+                    }
+
+                    var t = sqlTable.Skip(index).Take(5);
+                    
+                    Loop(t);
+                }
+
+                await Context.Channel.SendMessageAsync("```cs\n" +
+                                                       consoleTable.ToMinimalString()
+                                                       + "```");
+                
+                void Loop(IEnumerable<StandingsTeam> collection)
+                {
+                    foreach (var team in collection)
+                    {
+                        consoleTable.AddRow(team.Position, team.Team, team.Played, team.Won, team.Drawn, team.Lost, team.Gd,
+                            team.Points);
+                    }
+                }
+            }
+        }
+
         [Command("laligascorers", RunMode = RunMode.Async)]
         public async Task LaLigaScorers()
         {

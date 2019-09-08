@@ -24,6 +24,10 @@ namespace Barcabot.Bot.Modules
             builder.AddField("=playerschart *player1* *player2*", "Generates a stat chart with up to date date stats (updated daily) that compares stats of selected players.");
             builder.AddField("=laligascorers", "Shows up to date (updated every minute) top goal scorers for the LaLiga Santander.");
             builder.AddField("=uclscorers", "Shows up to date (updated every minute) top goal scorers for the UEFA Champions League.");
+            builder.AddField("=table top", "Shows the top 5 of LaLiga Santander. Updated every minute.");
+            builder.AddField("=table bottom", "Shows the bottom 5 of LaLiga Santander. Updated every minute.");
+            builder.AddField("=table teamName",
+                "Shows the team's position in LaLiga's standings and its table neighbours");
             builder.AddField("=feature", "Shows you how to request a feature.");
             builder.AddField("=github", "Shows a link to BarcaBot's main Github repo.");
             builder.AddField("=issue", "Shows you how to report an issue.");
