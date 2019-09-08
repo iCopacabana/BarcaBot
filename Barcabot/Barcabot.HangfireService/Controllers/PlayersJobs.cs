@@ -23,7 +23,7 @@ namespace Barcabot.HangfireService.Controllers
         {
             try
             {
-                RecurringJob.AddOrUpdate("matches-update-job", () => _service.UpdatePlayers(), Cron.Daily);
+                RecurringJob.AddOrUpdate("players-update-job", () => _service.UpdatePlayers(), Cron.Daily);
 
                 return new ApiStatus
                 {
