@@ -54,8 +54,8 @@ namespace Barcabot.Bot.Modules
                     Loop(t);
                 }
 
-                await Context.Channel.SendMessageAsync("```cs\n" +
-                                                       consoleTable.ToMinimalString()
+                await Context.Channel.SendMessageAsync("LaLiga Santander Table\n" + "```json\n" +
+                                                       consoleTable.ToMinimalString() + "\nTable is updated every 60 seconds."
                                                        + "```");
                 
                 void Loop(IEnumerable<StandingsTeam> collection)
