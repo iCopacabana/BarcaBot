@@ -9,9 +9,11 @@ namespace Barcabot.Database
         List<Scorer> GetLaLigaScorersList();
         List<Scorer> GetUclScorersList();
         List<Match> GetScheduledMatchesList();
+        List<StandingsTeam> GetLaLigaStandings();
         void SetLaLigaScorers(List<Scorer> data);
         void SetUclScorers(List<Scorer> data);
         void SetMatches(List<Match> data);
+        void SetStandings(List<StandingsTeam> data);
         #endregion
 
         #region ApiFootballRelatedMethods

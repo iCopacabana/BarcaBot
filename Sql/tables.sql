@@ -69,3 +69,17 @@ create table player
 	goalsconceded integer,
 	goalsassists integer
 );
+
+create table standings
+(
+	position integer not null
+		constraint standings_pk
+			primary key,
+	team varchar,
+	played integer,
+	won integer,
+	drawn integer,
+	lost integer,
+	gd integer,
+	points integer
+); 

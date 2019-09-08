@@ -27,6 +27,7 @@ namespace Barcabot.HangfireService.Controllers
                 RecurringJob.AddOrUpdate("ucl-scorers-update-job", () => _service.UpdateUclScorers(), "0/2 * * * *");
                 RecurringJob.AddOrUpdate("laliga-scorers-update-job", () => _service.UpdateLaLigaScorers(),
                     "0/2 * * * *");
+                RecurringJob.AddOrUpdate("laliga-standings-update-job", () => _service.UpdateStandings(), Cron.Minutely);
 
                 return new ApiStatus
                 {
@@ -44,7 +45,6 @@ namespace Barcabot.HangfireService.Controllers
                     Message = e.Message
                 };
             }
-            
         }
     }
 }

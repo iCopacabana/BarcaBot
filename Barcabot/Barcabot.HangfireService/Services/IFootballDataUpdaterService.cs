@@ -7,5 +7,6 @@ namespace Barcabot.HangfireService.Services
         Task UpdateUclScorers();
         Task UpdateLaLigaScorers();
         Task UpdateMatches();
+        Task UpdateStandings();
     }
 }

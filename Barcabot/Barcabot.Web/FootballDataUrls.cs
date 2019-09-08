@@ -6,6 +6,7 @@ namespace Barcabot.Web
         public static string Match(string matchId) => $"{RootUrl}/matches/{matchId}";
         public static string ScheduledMatches(string teamId) => $"{RootUrl}/teams/{teamId}/matches?status=SCHEDULED";
         public static string TopScorers(string competitionId) => $"{RootUrl}/competitions/{competitionId}/scorers";
+        public static string LaLigaTable => $"{RootUrl}/competitions/{LaLigaId}/standings";
         public static string LaLigaId => "2014";
         public static string UclId => "2001";
     }

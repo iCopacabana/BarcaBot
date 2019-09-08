@@ -42,5 +42,15 @@ namespace Barcabot.HangfireService.Services
                 c.SetMatches(matches);
             }
         }
+
+        public async Task UpdateStandings()
+        {
+            var standings = await _retriever.GetLaLigaStandings();
+
+            using (var c = new BarcabotDatabaseConnection())
+            {
+                c.SetStandings(standings);
+            }
+        }
     }
 }

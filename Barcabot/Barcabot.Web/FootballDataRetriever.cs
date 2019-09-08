@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Barcabot.Common.DataModels.Dto.FootballDataApi;
 using Match = Barcabot.Common.DataModels.Match;
 using Scorer = Barcabot.Common.DataModels.Scorer;
+using Team = Barcabot.Common.DataModels.StandingsTeam;
 
 namespace Barcabot.Web
 {
@@ -15,6 +16,25 @@ namespace Barcabot.Web
         public FootballDataRetriever(FootballDataApiRetrievalService service)
         {
             _service = service;
+        }
+
+        public async Task<List<Team>> GetLaLigaStandings()
+        {
+            var root = await _service.RetrieveData<StandingsRoot>(FootballDataUrls.LaLigaTable);
+            var table = root.Standings[0].Table;
+
+            return table.Select(rawTeam => new Team
+                {
+                    Position = rawTeam.Position,
+                    Team = rawTeam.Team.Name,
+                    Played = rawTeam.PlayedGames,
+                    Won = rawTeam.Won,
+                    Drawn = rawTeam.Draw,
+                    Lost = rawTeam.Lost,
+                    Gd = rawTeam.GoalDifference,
+                    Points = rawTeam.Points
+                })
+                .ToList();
         }
 
         public async Task<List<Scorer>> GetScorers(string competitionId)

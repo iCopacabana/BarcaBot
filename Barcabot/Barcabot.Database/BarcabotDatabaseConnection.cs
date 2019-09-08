@@ -38,6 +38,13 @@ namespace Barcabot.Database
 
             return output;
         }
+
+        public List<StandingsTeam> GetLaLigaStandings()
+        {
+            var output = Connection.Query<StandingsTeam>("select * from standings order by position asc").ToList();
+
+            return output;
+        }
         
         public void SetLaLigaScorers(List<Scorer> data)
         {
@@ -52,6 +59,11 @@ namespace Barcabot.Database
         public void SetMatches(List<Match> data)
         {
             Connection.Execute(@"insert into matches (matchid, matchcompetition, matchdate, matchstadium, matchhometeam, matchawayteam, matchtotalmatches, matchtotalgoals, matchwins, matchdraws, matchlosses) values (@matchid, @matchcompetition, @matchdate, @matchstadium, @matchhometeam, @matchawayteam, @matchtotalmatches, @matchtotalgoals, @matchwins, @matchdraws, @matchlosses) on conflict (matchid) do update set (matchid, matchcompetition, matchdate, matchstadium, matchhometeam, matchawayteam, matchtotalmatches, matchtotalgoals, matchwins, matchdraws, matchlosses) = (@matchid, @matchcompetition, @matchdate, @matchstadium, @matchhometeam, @matchawayteam, @matchtotalmatches, @matchtotalgoals, @matchwins, @matchdraws, @matchlosses)", data);
+        }
+
+        public void SetStandings(List<StandingsTeam> data)
+        {
+            Connection.Execute(@"insert into standings (position, team, played, won, drawn, lost, gd, points) values (@position, @team, @played, @won, @drawn, @lost, @gd, @points) on conflict (position) do update set (position, team, played, won, drawn, lost, gd, points) = (@position, @team, @played, @won, @drawn, @lost, @gd, @points)", data);
         }
         #endregion
         
